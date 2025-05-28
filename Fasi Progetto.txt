@@ -1,0 +1,75 @@
+
+
+ Supervised Learning (abbiamo y nota: loan_status)
+  ├── Regressione Logistica (modello base, interpretabile)
+  ├── Decision Tree (modello ad albero)
+  ├── Random Forest (modello ensemble con più alberi)
+  └── Confronto tra modelli
+
+    
+
+PROGETTO DI PREVISIONE PRESTITO (loan_data.csv)
+├── FASE 1 – Importazione librerie
+│   ├── pandas, numpy, matplotlib, seaborn
+│   ├── sklearn (train_test_split, metrics, pipeline, encoder, scaler, modelli)
+│   └── statsmodels (Logit, inferenza)
+│
+├── FASE 2 – Caricamento CSV + ID
+│   ├── df = pd.read_csv(...)
+│   ├── df.head(), df.info(), df.shape
+│   └── Creazione colonna ID se mancante
+│
+├── FASE 3 – EDA (Exploratory Data Analysis)
+│   ├── df.describe(), df.nunique(), df.isnull(), df.duplicated()
+│   ├── Visualizzazione: boxplot, histplot, pairplot, heatmap
+│   └── Analisi outlier, mediana ≠ media, sbilanciamenti
+│
+├── FASE 4 – Data Cleaning
+│   ├── Rimozione outlier (±3 std)
+│   ├── Uniformazione valori (es. “Master” → “master”)
+│   ├── Rimozione duplicati
+│   └── Trattamento nulli (nel tuo caso: assenti)
+│
+├── FASE 5 – Feature Engineering
+│   ├── One-hot encoding (colonne categoriche)
+│   ├── Mapping binari (Yes/No → 1/0)
+│   ├── StandardScaler (numeriche)
+│   └── Differenza tra Standardizzazione e Normalizzazione
+│
+├── FASE 6 – Data Selection (Feature Selection)
+│   ├── VIF (collinearità)
+│   ├── Heatmap di correlazione
+│   ├── Wrapped method (Backward Elimination, p-value)
+│   ├── Decision Tree (pre-pruning, feature selection)
+│   └── Random Forest (feature importance, Gini, bootstrap)
+│
+├── FASE 7 – Separazione X/y e Train-Test Split
+│   ├── df_inferenza (senza colonne predittive derivate)
+│   ├── df_predizione (con feature tipo loan_percent_income)
+│   ├── X = df.drop(target)
+│   └── y = df[target]
+│
+├── FASE 8 – Inferenza Statistica (Statsmodels)
+│   ├── Logit → .summary()
+│   ├── Interpretazione: coef, std err, z, p-value, CI
+│   └── H₀ / H₁: significatività delle variabili
+│
+├── FASE 9 – Pipeline Modello (Sklearn)
+│   ├── ColumnTransformer (encoding + scaling)
+│   ├── Pipeline (preprocessing + modello)
+│   └── Fit / Predict
+│
+├── FASE 10 – Valutazione
+│   ├── Accuracy, Precision, Recall, F1
+│   ├── Confusion Matrix
+│   └── ROC Curve + AUC
+│
+├── FASE 11 – Confronto modelli
+│   ├── Logistic Regression vs Decision Tree vs Random Forest
+│   ├── Comparazione di accuracy, ROC, out-of-bag score
+│   └── Scelta del modello migliore per la predizione
+│
+└── FASE 12 – Conclusione
+    ├── Quali X influenzano il prestito (inferenza)
+    ├── Quanto il modello predice bene (accuratezza)
+    └── Quale modello usare in produzione

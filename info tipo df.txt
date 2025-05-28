@@ -1,0 +1,11 @@
+df = DataFrame Pulito senza outlier, senza valore 'OTHER' con econding map 1/0
+
+-- df_regrLog = DataFrame Pulito(df) PER REGRESSIONE LOGISTICA con encoding (One hot encoding su colonne con più variabili)
+---- df_regrLog_inf = df_regrLog con 'loan_percent_income' Rimosso, perchè dà fastidio a Inferenza 
+---- df_regrLog_pred = df_regrLog con 'loan_percent_income' incluso di nuovo per predizione 
+
+-- df_decisionTree
+
+
+
+-- df_randomForest
