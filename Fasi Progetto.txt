@@ -1,75 +1,100 @@
+📌 NOTEBOOK: Logistic Regression.ipynb
+│
+├── FASE 0: Importazione Librerie ✔️
+│   └─ [Codice] import pandas as pd, numpy as np, matplotlib.pyplot, seaborn...
+│
+├── FASE 1: Caricamento del dataset pulito df_EDA.csv ✔️
+│   └─ [Codice] df = pd.read_csv("data/df_EDA.csv")
+│
+├── FASE 2: Encoding delle variabili categoriche (Ordinal Encoding) 🟡
+│   └─ Motivazione: usare un encoding compatibile con la regressione logistica.
+│
+├── FASE 3: Separazione X (features) e y (target) 🟡
+│   └─ [Codice] X = df.drop('loan_status', axis=1); y = df['loan_status']
+│
+├── FASE 4: Train/Test Split 🟡
+│   └─ [Codice] train_test_split con stratify=y
+│
+├── FASE 5: Standardizzazione 🟡
+│   └─ Solo per Regressione Logistica. Usa StandardScaler in una pipeline.
+│
+├── FASE 6: Costruzione della Pipeline 🟡
+│   └─ [Codice] Pipeline con StandardScaler + LogisticRegression
+│
+├── FASE 7: Addestramento (fit) del modello 🟡
+│
+├── FASE 8: Valutazione — Predizione + Matrice Confusione 🟡
+│   └─ Accuracy, Recall, Precision, Confusion Matrix, ROC Curve
+│
+├── FASE 9: Inferenza Statistica con statsmodels 🟡
+│   └─ [Codice] sm.Logit per ottenere p-value e coefficienti
+│
+├── FASE 10: Conclusione e interpretazione 🟡
+│   └─ Quali feature influenzano? L'inferenza è significativa? Il modello è utile?
+│
+└── 📊 Grafici: Confusion Matrix, ROC Curve, Coefficienti (barplot con interpretazione) 🟡
 
 
- Supervised Learning (abbiamo y nota: loan_status)
-  ├── Regressione Logistica (modello base, interpretabile)
-  ├── Decision Tree (modello ad albero)
-  ├── Random Forest (modello ensemble con più alberi)
-  └── Confronto tra modelli
 
-    
 
-PROGETTO DI PREVISIONE PRESTITO (loan_data.csv)
-├── FASE 1 – Importazione librerie
-│   ├── pandas, numpy, matplotlib, seaborn
-│   ├── sklearn (train_test_split, metrics, pipeline, encoder, scaler, modelli)
-│   └── statsmodels (Logit, inferenza)
+
+
+
+
+📌 NOTEBOOK: Decision Tree.ipynb
 │
-├── FASE 2 – Caricamento CSV + ID
-│   ├── df = pd.read_csv(...)
-│   ├── df.head(), df.info(), df.shape
-│   └── Creazione colonna ID se mancante
-│
-├── FASE 3 – EDA (Exploratory Data Analysis)
-│   ├── df.describe(), df.nunique(), df.isnull(), df.duplicated()
-│   ├── Visualizzazione: boxplot, histplot, pairplot, heatmap
-│   └── Analisi outlier, mediana ≠ media, sbilanciamenti
-│
-├── FASE 4 – Data Cleaning
-│   ├── Rimozione outlier (±3 std)
-│   ├── Uniformazione valori (es. “Master” → “master”)
-│   ├── Rimozione duplicati
-│   └── Trattamento nulli (nel tuo caso: assenti)
-│
-├── FASE 5 – Feature Engineering
-│   ├── One-hot encoding (colonne categoriche)
-│   ├── Mapping binari (Yes/No → 1/0)
-│   ├── StandardScaler (numeriche)
-│   └── Differenza tra Standardizzazione e Normalizzazione
-│
-├── FASE 6 – Data Selection (Feature Selection)
-│   ├── VIF (collinearità)
-│   ├── Heatmap di correlazione
-│   ├── Wrapped method (Backward Elimination, p-value)
-│   ├── Decision Tree (pre-pruning, feature selection)
-│   └── Random Forest (feature importance, Gini, bootstrap)
-│
-├── FASE 7 – Separazione X/y e Train-Test Split
-│   ├── df_inferenza (senza colonne predittive derivate)
-│   ├── df_predizione (con feature tipo loan_percent_income)
-│   ├── X = df.drop(target)
-│   └── y = df[target]
-│
-├── FASE 8 – Inferenza Statistica (Statsmodels)
-│   ├── Logit → .summary()
-│   ├── Interpretazione: coef, std err, z, p-value, CI
-│   └── H₀ / H₁: significatività delle variabili
-│
-├── FASE 9 – Pipeline Modello (Sklearn)
-│   ├── ColumnTransformer (encoding + scaling)
-│   ├── Pipeline (preprocessing + modello)
-│   └── Fit / Predict
-│
-├── FASE 10 – Valutazione
-│   ├── Accuracy, Precision, Recall, F1
-│   ├── Confusion Matrix
-│   └── ROC Curve + AUC
-│
-├── FASE 11 – Confronto modelli
-│   ├── Logistic Regression vs Decision Tree vs Random Forest
-│   ├── Comparazione di accuracy, ROC, out-of-bag score
-│   └── Scelta del modello migliore per la predizione
-│
-└── FASE 12 – Conclusione
-    ├── Quali X influenzano il prestito (inferenza)
-    ├── Quanto il modello predice bene (accuratezza)
-    └── Quale modello usare in produzione
+├── FASE 0: Librerie
+├── FASE 1: Caricamento df
+├── FASE 2: Ordinal Encoding (come per logistica)
+├── FASE 3: X e y
+├── FASE 4: Train/Test Split
+├── FASE 5: Costruzione modello DecisionTreeClassifier
+│   ├── 📌 Pre-Pruning (max_depth, min_samples_split, ecc.)
+│   └── 📌 Cross-Validation
+├── FASE 6: Fit + Predict
+├── FASE 7: Valutazione con accuracy, confusion matrix, ROC
+├── FASE 8: Feature Importance (📈 Gini Importance)
+├── FASE 9: Post-Pruning (GridSearchCV o Cost-Complexity Pruning)
+├── FASE 10: Conclusione
+└── 📊 Grafici: Albero, Matrice, Feature Importance, ROC
+
+
+
+
+
+
+
+
+📌 NOTEBOOK: Random Forest.ipynb
+├── Stesse fasi iniziali
+├── Costruzione modello con RandomForestClassifier
+├── Fit + Predict
+├── Valutazione
+├── Feature Importance (più robusta)
+├── Confronto con Decision Tree
+└── 📊 ROC, matrice confusione, feature importance
+
+
+
+
+
+
+
+📌 NOTEBOOK: Neural Network.ipynb
+├── Librerie (tensorflow.keras)
+├── Dataset
+├── Encoding
+├── Standardizzazione
+├── Separazione X/y
+├── Costruzione modello sequenziale:
+│   ├── Dense
+│   ├── Activation Function (ReLU, Sigmoid)
+│   ├── Loss Function (categorical crossentropy o binary crossentropy)
+│   ├── Ottimizzatore (Adam con learning_rate)
+├── Compilazione e Fit (epochs, batch_size)
+├── Valutazione Accuracy
+├── Confusion Matrix
+├── Grafico della Loss e Accuracy durante gli Epoch
+├── Funzione di attivazione e costo — spiegazione
+├── Backpropagation (concetto)
+└── Conclusione
