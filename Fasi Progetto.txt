@@ -6,7 +6,8 @@
 ├── FASE 1: Caricamento del dataset pulito df_EDA.csv ✔️
 │   └─ [Codice] df = pd.read_csv("data/df_EDA.csv")
 │
-├── FASE 2: Encoding delle variabili categoriche (Ordinal Encoding) 🟡
+├── FASE 2: Ordinal Encoding della variabile categorica ('person_education') 🟡
+|           One-Hot Encoding delle restanti variabili categoriche.
 │   └─ Motivazione: usare un encoding compatibile con la regressione logistica.
 │
 ├── FASE 3: Separazione X (features) e y (target) 🟡
@@ -16,10 +17,11 @@
 │   └─ [Codice] train_test_split con stratify=y
 │
 ├── FASE 5: Standardizzazione 🟡
-│   └─ Solo per Regressione Logistica. Usa StandardScaler in una pipeline.
+│   └─ Per Regressione Logistica. Usa StandardScaler in una pipeline.
 │
 ├── FASE 6: Costruzione della Pipeline 🟡
 │   └─ [Codice] Pipeline con StandardScaler + LogisticRegression
+    |_ Calcolo VIF (Variance Inflation Factor) per eseguire il funzionamento dell'Inferenza (rimozione > 10)
 │
 ├── FASE 7: Addestramento (fit) del modello 🟡
 │
