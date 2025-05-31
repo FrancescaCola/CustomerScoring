@@ -67,14 +67,36 @@
 
 
 
-📌 NOTEBOOK: Random Forest.ipynb
-├── Stesse fasi iniziali
-├── Costruzione modello con RandomForestClassifier
-├── Fit + Predict
-├── Valutazione
-├── Feature Importance (più robusta)
-├── Confronto con Decision Tree
-└── 📊 ROC, matrice confusione, feature importance
+📌NOTEBOOK: RandomForest 
+│
+├── 1. Importazione Librerie
+│
+├── 2. Preparazione Dataset
+│   ├── a. Scelta e codifica variabili categoriche con Ordinal Encoding
+│   ├── b. Definizione X (features) e y (target)
+│
+├── 3. Train-Test Split (stratify = y, 70-30)
+│
+├── 4. Costruzione Pipeline
+│   ├── a. ColumnTransformer con OrdinalEncoder
+│   └── b. RandomForestClassifier con class_weight='balanced'
+│
+├── 5. Addestramento modello
+│
+├── 6. Valutazione modello
+│   ├── Accuracy
+│   ├── Precision
+│   ├── Recall
+│   ├── F1-Score
+│   ├── Confusion Matrix + Heatmap
+│   ├── ROC Curve + AUC
+│
+├── 7. Importanza delle feature
+│   └── Classifica variabili più importanti (grafico + interpretazione)
+│
+└── 8. Conclusione
+    ├── Confronto finale con altri modelli
+    └── Interpretazione dei risultati per decidere se è il miglior modello
 
 
 
